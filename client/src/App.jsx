@@ -13,6 +13,7 @@ import Logout from './components/user_activities/Logout'
 import About from './components/app_info/About'
 import Contact from './components/app_info/Contact'
 import Privacy from './components/app_info/Privacy'
+import MissingPage from './components/MissingPage'
 import './App.css'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<MissingPage />} />
         </Routes>
       </main>
 
