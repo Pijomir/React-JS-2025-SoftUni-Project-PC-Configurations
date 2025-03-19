@@ -1,21 +1,38 @@
 html, body {
     margin: 0;
     font-family: Arial, sans-serif;
-    height: 100vh;  /* Използваме 100vh, за да запълни целия екран */
+    height: 100vh;
+    background: #f1f1f1; /* Светло сив фон */
+    overflow-x: hidden;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    animation: fadeIn 1s ease-out;
 }
 
 main {
-    flex-grow: 1;  /* Това позволява на main да запълва наличното пространство */
+    flex-grow: 1;
+}
+
+header, footer {
+    background-color: #2c2c2c; /* Тъмно сив фон за header и footer */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лека сянка */
 }
 
 header {
-    background-color: #333;
     padding: 15px 0;
+    animation: slideIn 1s ease-out;
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 nav ul {
@@ -36,46 +53,41 @@ nav ul li a {
     text-decoration: none;
     font-size: 16px;
     padding: 8px 15px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    background-color: #555;
     border-radius: 5px;
+    position: relative;
+    background: linear-gradient(135deg, #8A6E52, #A57C4A); /* Кафяви нюанси */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto;  /* Това ще бутне футъра в долната част */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
 }
 
-footer nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-footer nav ul li {
-    display: inline;
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 footer nav ul li a {
-    color: white;
-    text-decoration: none;
     font-size: 16px;
     padding: 8px 15px;
-    transition: 0.3s;
+    background: linear-gradient(135deg, #8A6E52, #A57C4A);
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 footer nav ul li a:hover {
-    background-color: #555;
-    border-radius: 5px;
+    background: linear-gradient(135deg, #A57C4A, #8A6E52);
+    transform: scale(1.1);
 }
 
 footer p {
@@ -85,74 +97,212 @@ footer p {
 
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
 
-    nav ul li {
-        margin-bottom: 10px; 
-    }
-
     footer nav ul {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
 
     footer p {
-        font-size: 12px; 
+        font-size: 12px;
     }
 
     header nav ul li {
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
 }
 
-.home {
+.home, .about, .contacts, .privacy, .login, .register {
     padding: 30px;
     text-align: center;
+    animation: fadeInUp 1s ease-out;
 }
 
-.home h1 {
+.home h1, .about h1, .contacts h1, .privacy h1, .login h1, .register h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #333; /* Тъмно сиво за заглавията */
 }
 
-.home p {
+.home p, .about p, .contacts p, .privacy p {
     font-size: 1.2rem;
+    color: #666; /* Светло сиво за текстовете */
     margin-bottom: 30px;
-    color: #666;
 }
 
-.configurations-list {
-    background-color: #f4f4f4;
+.configurations-list, .contact-details, .privacy-content, .login-container, .register-container {
+    background-color: #fff; /* Светъл фон за блоковете */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 1s ease-out;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-.configurations-list h2 {
+.configurations-list h2, .privacy-content h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: #333;
 }
 
-.configurations-list ul {
+.configurations-list ul, .contact-details p, .privacy-content p {
     list-style: none;
     padding: 0;
     text-align: left;
     margin: 0;
 }
 
-.configurations-list ul li {
+.configurations-list ul li, .contact-details p, .privacy-content p {
     font-size: 1.2rem;
     padding: 10px;
-    background-color: #fff;
+    background-color: #f4f4f4; /* Светло сиво за елементите */
     margin-bottom: 10px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.configurations-list ul li:hover {
-    background-color: #f4f4f4;
+.configurations-list ul li:hover, .contact-details p:hover, .privacy-content p:hover {
+    background-color: #e1e1e1; /* Леко осветление при hover */
+    transform: translateX(5px);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #333; /* Тъмно сиво за етикетите */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #2c2c2c;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.login-btn, .register-btn {
+    background: linear-gradient(135deg, #7d5a3e, #9a6b47); /* Малко по-тъмно кафяво */
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover, .register-btn:hover {
+    background: linear-gradient(135deg, #9a6b47, #7d5a3e);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home .configurations {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.home .configuration-item {
+    width: 30%;
+    background-color: #fff; /* Светло сив фон за елементите */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.home .configuration-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.home .configuration-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.home .configuration-item h3 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.home .configuration-item p {
+    font-size: 1rem;
+    color: #666;
 }

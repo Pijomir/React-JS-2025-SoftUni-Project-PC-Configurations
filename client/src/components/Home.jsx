@@ -4,20 +4,20 @@ export default function Home() {
     return (
         <>
             <div className="home">
-                <h1>Покажете компютърните си конфигурации</h1>
-                <p>Тук можете да разглеждате наличните PC конфигурации.</p>
+                <h1>Share Your Computer Configurations</h1>
+                <p>Browse and upload your custom PC configurations to share with others.</p>
 
                 <div className="configurations-list">
-                    <h2>Съществуващи конфигурации</h2>
+                    <h2>Available Configurations</h2>
                     <ul>
                         <li>
-                            <Link to="/details/1">Конфигурация 1</Link>
+                            <Link to="/details/1">Configuration 1</Link>
                         </li>
                         <li>
-                            <Link to="/details/2">Конфигурация 2</Link>
+                            <Link to="/details/2">Configuration 2</Link>
                         </li>
                         <li>
-                            <Link to="/details/3">Конфигурация 3</Link>
+                            <Link to="/details/3">Configuration 3</Link>
                         </li>
                     </ul>
                 </div>
