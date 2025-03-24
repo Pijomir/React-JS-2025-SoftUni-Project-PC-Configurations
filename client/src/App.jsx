@@ -4,8 +4,8 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import PCConfigurationsCatalog from './components/catalog/PCConfigurationsCatalog'
-import PCConfigurationCreate from './components/catalog/PCConfigurationCreate'
 import PCConfigurationInfo from './components/catalog/PCConfigurationInfo'
+import PCConfigurationAdd from './components/catalog/PCConfigurationAdd'
 import PCConfigurationEdit from './components/catalog/PCConfigurationEdit'
 import Login from './components/user_activities/login'
 import Register from './components/user_activities/Register'
@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/configurations" element={<PCConfigurationsCatalog />} />
-          <Route path="/configurations/create" element={<PCConfigurationCreate />} />
+          <Route path="/configurations/add" element={<PCConfigurationAdd />} />
           <Route path="/configurations/:configurationId/info" element={<PCConfigurationInfo />} />
           <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} />
           <Route path="/login" element={<Login />} />
