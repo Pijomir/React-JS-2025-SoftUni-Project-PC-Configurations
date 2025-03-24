@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Login() {
     return (
         <section class="login">
@@ -14,6 +16,9 @@ export default function Login() {
                     </div>
                     <button type="submit" class="login-btn">Login</button>
                 </form>
+                <div class="register-link">
+                    <p>Don't have an account? <Link to="/register">Register here</Link></p>
+                </div>
             </div>
         </section>
     );

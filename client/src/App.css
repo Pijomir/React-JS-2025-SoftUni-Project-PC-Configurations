@@ -219,6 +219,29 @@ footer p {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.register-link, .login-link {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.register-link p, .login-link p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #666;
+}
+
+.register-link Link, .login-link Link {
+    color: #7d5a3e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.register-link Link:hover, .login-link Link:hover {
+    color: #9a6b47;
+}
+
 
 @keyframes fadeIn {
     0% {
