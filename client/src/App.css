@@ -129,6 +129,10 @@ footer p {
     background-repeat: no-repeat;
 }
 
+.home-content {
+    display: flex;
+}
+
 .home, .about, .contacts, .privacy, .login, .register {
     padding: 30px;
     text-align: center;
@@ -150,7 +154,7 @@ footer p {
 }
 
 .configurations-list, .contact-details, .privacy-content, .login-container, .register-container {
-    background-color: #fff; 
+    background-color: #ffffff; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
