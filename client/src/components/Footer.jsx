@@ -4,6 +4,7 @@ export default function Footer() {
     return (
         <>
             <footer>
+            <p>&copy; PC Configurations 2025. All rights reserved.</p>
                 <nav>
                     <ul>
                         <li><Link to="/about">About</Link></li>
@@ -11,7 +12,6 @@ export default function Footer() {
                         <li><Link to="/privacy">Privacy Policy</Link></li>
                     </ul>
                 </nav>
-                <p>&copy; 2025 Your Website. All rights reserved.</p>
             </footer>
         </>
     );

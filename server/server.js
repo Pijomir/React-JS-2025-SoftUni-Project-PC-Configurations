@@ -1649,7 +1649,37 @@
     			_createdOn: 1616237272948,
     			_updatedOn: 1616237293676
     		}
-    	}
+    	},
+        configurations: [
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "name": "Gaming PC",
+                "motherboard": "Asus Prime X570-P",
+                "cpu": "Ryzen 9 5900X",
+                "gpu": "RX 9070XT",
+                "ram": "2*16GB DDR4 cl16",
+                "storage": "WD BLACK SN770",
+                "psu": "Super Flower Leadex III 650 W Gold",
+                "case": "CM 690III",
+                "image": "https://i.postimg.cc/W3vh8Kyb/PXL-20231108-112533158.jpg",
+                "_createdOn": 1743271951173,
+                "_id": "4a2aaa2a-a58f-4032-ac51-8a215826cbcd"
+            },
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "name": "Gaming PC 2",
+                "motherboard": "Asus Prime X570-Pro",
+                "cpu": "Ryzen 9 5950X",
+                "gpu": "RX 9070",
+                "ram": "2*16GB DDR4 cl16",
+                "storage": "WD BLACK SN770",
+                "psu": "Super Flower Leadex III 550 W Gold",
+                "case": "CM 690III",
+                "image": "https://i.postimg.cc/wj18MXbp/PXL-20240109-194846858.jpg",
+                "_createdOn": 1743271983588,
+                "_id": "656863be-356d-4a90-81e3-e72ad1d01c7f"
+            }
+        ]
     };
     var rules$1 = {
     	users: {

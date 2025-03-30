@@ -1,6 +1,13 @@
 import { Link } from "react-router";
+import useUserAuth from "../hooks/useUserAuth";
+import { useLastConfigurations, useOwnerConfigurations } from "../api/PCConfigurationsApi";
 
 export default function Home() {
+    const { lastConfigurations } = useLastConfigurations();
+    const { userId, isAuthenticated } = useUserAuth();
+    const { myConfigurations } = useOwnerConfigurations(userId);
+
+
     return (
         <>
             <div className="home">
@@ -9,34 +16,42 @@ export default function Home() {
 
                 <section className="home-content">
                     <main className="configurations-list">
-                        <h2>Available Configurations</h2>
-                        <ul>
-                            <li>
-                                <Link to="/details/1">Configuration 1</Link>
-                            </li>
-                            <li>
-                                <Link to="/details/2">Configuration 2</Link>
-                            </li>
-                            <li>
-                                <Link to="/details/3">Configuration 3</Link>
-                            </li>
-                        </ul>
-                    </main>
+                        <h2>Last Configurations</h2>
 
-                    <aside className="configurations-list">
-                        <h2>Available Configurations</h2>
-                        <ul>
-                            <li>
-                                <Link to="/details/1">Configuration 1</Link>
-                            </li>
-                            <li>
-                                <Link to="/details/2">Configuration 2</Link>
-                            </li>
-                            <li>
-                                <Link to="/details/3">Configuration 3</Link>
-                            </li>
-                        </ul>
-                    </aside>
+                        {lastConfigurations?.length > 0 ? (
+                            <ul>
+                                {lastConfigurations.map(configuration => (
+                                    <li key={configuration._id}>
+                                        <Link to={`/configurations/${configuration._id}/info`}>
+                                            {configuration.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No Configurations Yet</p>
+                        )}
+
+                    </main>
+                    {isAuthenticated && (
+                        <aside className="configurations-list">
+                            <h2>My Configurations</h2>
+
+                            {myConfigurations?.length > 0 ? (
+                                <ul>
+                                    {myConfigurations.map(configuration => (
+                                        <li key={configuration._id}>
+                                            <Link to={`/configurations/${configuration._id}/info`}>
+                                                {configuration.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p>You haven't added any configurations yet.</p>
+                            )}
+                        </aside>
+                    )}
                 </section>
 
             </div >
