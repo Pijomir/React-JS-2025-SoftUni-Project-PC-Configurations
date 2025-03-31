@@ -21,9 +21,7 @@ export default function PCConfigurationInfo() {
         navigate('/configurations');
     }
 
-    const configurationEditHandler = () => {
-        navigate(`/configurations/${configurationId}/edit`);
-    }
+    const configurationEditHandler = () => navigate(`/configurations/${configurationId}/edit`);
 
     const isOwner = userId === configuration._ownerId;
 
