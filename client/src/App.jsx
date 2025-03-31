@@ -7,8 +7,8 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import PCConfigurationsCatalog from './components/catalog/PCConfigurationsCatalog'
 import PCConfigurationInfo from './components/catalog/PCConfigurationInfo'
-import PCConfigurationAdd from './components/catalog/PCConfigurationAdd'
 import PCConfigurationEdit from './components/catalog/PCConfigurationEdit'
+import PCConfigurationAdd from './components/catalog/PCConfigurationAdd'
 import Login from './components/user_activities/Login'
 import Register from './components/user_activities/Register'
 import Logout from './components/user_activities/Logout'
@@ -32,10 +32,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/configurations" element={<PCConfigurationsCatalog />} />
             <Route path="/configurations/:configurationId/info" element={<PCConfigurationInfo />} />
+            <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} />
 
             <Route element={<AuthGuard />}>
               <Route path="/configurations/add" element={<PCConfigurationAdd />} />
-              <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} /> 
               <Route path="/logout" element={<Logout />} />
             </Route>
 

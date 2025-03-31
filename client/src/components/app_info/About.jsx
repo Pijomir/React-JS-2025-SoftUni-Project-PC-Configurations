@@ -1,7 +1,7 @@
 export default function About() {
     return (
-        <section class="about">
-            <div class="container">
+        <section className="about">
+            <div className="container">
                 <h1>About Us</h1>
                 <p>
                     Welcome to our platform for sharing hardware configurations!
