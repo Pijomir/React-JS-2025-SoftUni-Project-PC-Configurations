@@ -16,6 +16,8 @@ import About from './components/app_info/About'
 import Contact from './components/app_info/Contact'
 import Privacy from './components/app_info/Privacy'
 import MissingPage from './components/MissingPage'
+import AuthGuard from './components/guards/UserAuthGuard'
+import GuestGuard from './components/guards/GuestGuard'
 import './App.css'
 
 function App() {
@@ -29,12 +31,19 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/configurations" element={<PCConfigurationsCatalog />} />
-            <Route path="/configurations/add" element={<PCConfigurationAdd />} />
             <Route path="/configurations/:configurationId/info" element={<PCConfigurationInfo />} />
-            <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
+
+            <Route element={<AuthGuard />}>
+              <Route path="/configurations/add" element={<PCConfigurationAdd />} />
+              <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} /> 
+              <Route path="/logout" element={<Logout />} />
+            </Route>
+
+            <Route element={<GuestGuard />}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Route>
+
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
