@@ -4,7 +4,6 @@ import useUserAuth from "../../hooks/useUserAuth";
 
 export default function PCConfigurationEdit() {
     const navigate = useNavigate();
-    const { userId } = useUserAuth();
     const { configurationId } = useParams();
     const { configuration } = useOneConfiguration(configurationId);
     const { edit } = useEditConfiguration();
@@ -15,11 +14,6 @@ export default function PCConfigurationEdit() {
         await edit(configurationId, configurationData);
 
         navigate(`/configurations/${configurationId}/info`);
-    }
-
-    const isOwner = userId === configuration._ownerId;
-    if (!isOwner) {
-        return <Navigate to={"/configurations"} />
     }
 
     return (

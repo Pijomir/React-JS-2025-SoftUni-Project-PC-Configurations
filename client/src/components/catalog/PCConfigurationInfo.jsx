@@ -4,7 +4,7 @@ import { useDeleteConfiguration, useOneConfiguration } from "../../api/PCConfigu
 
 export default function PCConfigurationInfo() {
     const navigate = useNavigate();
-    const { _id: userId } = useUserAuth();
+    const { userId } = useUserAuth();
     const { configurationId } = useParams();
     const { configuration } = useOneConfiguration(configurationId);
     const { deleteConfiguration } = useDeleteConfiguration();
@@ -22,6 +22,7 @@ export default function PCConfigurationInfo() {
     }
 
     const configurationEditHandler = () => navigate(`/configurations/${configurationId}/edit`);
+    
 
     const isOwner = userId === configuration._ownerId;
 
