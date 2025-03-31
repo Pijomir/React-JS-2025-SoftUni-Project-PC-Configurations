@@ -113,26 +113,6 @@ footer p {
     font-size: 14px;
 }
 
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer p {
-        font-size: 12px;
-    }
-
-    header nav ul li {
-        margin-bottom: 10px;
-    }
-}
-
 .home {
     max-width: 100vw;
     min-height: 80vh;
@@ -199,6 +179,7 @@ footer p {
 
 .home, .about, .contacts, .privacy, .login, .register {
     padding: 30px;
+    margin-top: 5em;
     text-align: center;
     animation: fadeInUp 1s ease-out;
 }
@@ -207,13 +188,13 @@ footer p {
     font-size: 2.5rem;
     font-weight: bolder;
     margin-bottom: 20px;
-    color: #c4c4c4; 
+    color: #b1b1b1; 
 }
 
 .home p, .about p, .contacts p, .privacy p {
     font-size: 1.2rem;
     font-weight: bolder;
-    color: #c4c4c4; 
+    color: #b1b1b1; 
     margin-bottom: 30px;
 }
 

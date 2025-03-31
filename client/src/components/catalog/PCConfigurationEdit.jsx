@@ -1,6 +1,5 @@
-import { Navigate, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEditConfiguration, useOneConfiguration } from "../../api/PCConfigurationsApi";
-import useUserAuth from "../../hooks/useUserAuth";
 
 export default function PCConfigurationEdit() {
     const navigate = useNavigate();
@@ -15,6 +14,7 @@ export default function PCConfigurationEdit() {
 
         navigate(`/configurations/${configurationId}/info`);
     }
+    
 
     return (
         <div className="container">
