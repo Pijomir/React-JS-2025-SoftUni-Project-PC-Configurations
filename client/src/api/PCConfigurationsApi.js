@@ -64,11 +64,7 @@ export const useOwnerConfigurations = (ownerId) => {
 export const useAddConfiguration = () => {
     const { requests } = useUserAuth();
 
-    const add = (configurationData) => {
-        const dataWithLikes = { ...configurationData, likes: 0 };
-        
-        return requests.post(url, dataWithLikes);
-    }
+    const add = (configurationData) => requests.post(url, configurationData);
 
     return {
         add
