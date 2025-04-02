@@ -38,6 +38,7 @@ export default function PCConfigurationInfo() {
             <div className="image-container">
                 <img src={configuration.image} alt="Configuration Image" />
             </div>
+            <p>Likes: {configuration.likes}</p>
             <ul>
                 <li><strong>Name:</strong> {configuration.name}</li>
                 <li><strong>Motherboard:</strong> {configuration.motherboard}</li>
@@ -51,6 +52,8 @@ export default function PCConfigurationInfo() {
 
             {isOwner && (
                 <>
+                    <button className="details-btn">Like</button>
+
                     <button onClick={configurationEditHandler} className="details-btn">Edit</button>
 
                     <button onClick={configurationDeleteHandler} className="details-btn">Delete</button>

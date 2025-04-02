@@ -1662,6 +1662,7 @@
                 "psu": "Super Flower Leadex III 650 W Gold",
                 "case": "CM 690III",
                 "image": "https://i.postimg.cc/W3vh8Kyb/PXL-20231108-112533158.jpg",
+                "likes": 0,
                 "_createdOn": 1743271951173,
                 "_id": "4a2aaa2a-a58f-4032-ac51-8a215826cbcd"
             },
@@ -1676,6 +1677,7 @@
                 "psu": "Super Flower Leadex III 550 W Gold",
                 "case": "CM 690III",
                 "image": "https://i.postimg.cc/wj18MXbp/PXL-20240109-194846858.jpg",
+                "likes": 0,
                 "_createdOn": 1743271983588,
                 "_id": "656863be-356d-4a90-81e3-e72ad1d01c7f"
             }
