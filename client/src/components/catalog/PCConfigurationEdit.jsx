@@ -73,7 +73,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="name"
-                    value={formData.name}
+                    value={formData.name || ''}
                     onChange={handleChange}
                     placeholder="Име"
                     required
@@ -81,7 +81,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="motherboard"
-                    value={formData.motherboard}
+                    value={formData.motherboard || ''}
                     onChange={handleChange}
                     placeholder="Motherboard"
                     required
@@ -89,7 +89,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="cpu"
-                    value={formData.cpu}
+                    value={formData.cpu || ''}
                     onChange={handleChange}
                     placeholder="CPU"
                     required
@@ -97,7 +97,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="gpu"
-                    value={formData.gpu}
+                    value={formData.gpu || ''}
                     onChange={handleChange}
                     placeholder="GPU"
                     required
@@ -105,7 +105,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="ram"
-                    value={formData.ram}
+                    value={formData.ram || ''}
                     onChange={handleChange}
                     placeholder="RAM"
                     required
@@ -113,7 +113,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="storage"
-                    value={formData.storage}
+                    value={formData.storage || ''}
                     onChange={handleChange}
                     placeholder="Storage"
                     required
@@ -121,7 +121,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="psu"
-                    value={formData.psu}
+                    value={formData.psu || ''}
                     onChange={handleChange}
                     placeholder="PSU"
                     required
@@ -129,7 +129,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="case"
-                    value={formData.case}
+                    value={formData.case || ''}
                     onChange={handleChange}
                     placeholder="Case"
                     required
@@ -137,7 +137,7 @@ export default function PCConfigurationEdit() {
                 <input
                     type="text"
                     name="image"
-                    value={formData.image}
+                    value={formData.image || ''}
                     onChange={handleChange}
                     placeholder="Изображение (URL)"
                     required

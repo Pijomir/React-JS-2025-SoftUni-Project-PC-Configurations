@@ -25,7 +25,7 @@ export default function Register() {
         }
 
         if (password !== confirmPassword) {
-            toast.error('Password do not match');
+            toast.error('Passwords do not match');
             return;
         }
 
