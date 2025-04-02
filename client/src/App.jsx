@@ -18,42 +18,49 @@ import Privacy from './components/app_info/Privacy'
 import MissingPage from './components/MissingPage'
 import AuthGuard from './components/guards/UserAuthGuard'
 import GuestGuard from './components/guards/GuestGuard'
+import { Bounce, Flip, Slide, ToastContainer, Zoom } from 'react-toastify'
 import './App.css'
 
 function App() {
 
   return (
     <UserProvider>
+
       <div>
+
         <Header />
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/configurations" element={<PCConfigurationsCatalog />} />
-            <Route path="/configurations/:configurationId/info" element={<PCConfigurationInfo />} />
-            <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/configurations" element={<PCConfigurationsCatalog />} />
+              <Route path="/configurations/:configurationId/info" element={<PCConfigurationInfo />} />
+              <Route path="/configurations/:configurationId/edit" element={<PCConfigurationEdit />} />
 
-            <Route element={<AuthGuard />}>
-              <Route path="/configurations/add" element={<PCConfigurationAdd />} />
-              <Route path="/logout" element={<Logout />} />
-            </Route>
+              <Route element={<AuthGuard />}>
+                <Route path="/configurations/add" element={<PCConfigurationAdd />} />
+                <Route path="/logout" element={<Logout />} />
+              </Route>
 
-            <Route element={<GuestGuard />}>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </Route>
+              <Route element={<GuestGuard />}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+              </Route>
 
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="*" element={<MissingPage />} />
-          </Routes>
-        </main>
-
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="*" element={<MissingPage />} />
+            </Routes>
+          </main>
+        
         <Footer />
+
+        <ToastContainer autoClose={3000} theme='dark' transition={Zoom} closeOnClick={false} />
+
       </div>
-    </UserProvider>
+
+    </UserProvider >
   )
 }
 

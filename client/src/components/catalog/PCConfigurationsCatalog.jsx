@@ -8,7 +8,7 @@ export default function PCConfigurationsCatalog() {
             <section id="catalog">
                 <h1>PC Configurations</h1>
 
-                {configurations.length > 0
+                {configurations?.length > 0
                     ? configurations.map(config => <PCConfiguration key={config._id} {...config} />)
                     : <h2 className="no-configs">No Configurations Yet</h2>
                 }

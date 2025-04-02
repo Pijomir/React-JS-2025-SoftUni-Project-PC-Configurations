@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import { useRegister } from "../../api/UserApi";
 import { useUserContext } from "../../context/UserContext";
+import { toast } from "react-toastify";
 
 export default function Register() {
     const navigate = useNavigate();
@@ -12,37 +13,50 @@ export default function Register() {
 
         const confirmPassword = formData.get('confirm-password');
 
-        if (password !== confirmPassword) {
-            console.log('Password missmatch');
-
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            toast.error('Invalid email format');
             return;
         }
 
-        const authData = await register(email, password);
+        if (password.length < 5) {
+            toast.error('Password must be at least 5 characters long');
+            return;
+        }
 
-        userLoginHandler(authData);
+        if (password !== confirmPassword) {
+            toast.error('Password do not match');
+            return;
+        }
 
-        navigate('/');
+        try {
+            const authData = await register(email, password);
+            userLoginHandler(authData);
+            navigate('/');
+            toast.success('Successfully Registered');
+        } catch (err) {
+            toast.error(err.message);
+        }
     };
 
     return (
         <section className="register">
             <div className="register-container">
                 <h1>Register</h1>
-                <form action={registerHandler}>
+                <form onSubmit={(e) => { e.preventDefault(); registerHandler(new FormData(e.target)); }}>
                     <div className="form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" required />
+                        <input type="text" id="email" name="email"  />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" required />
+                        <input type="password" id="password" name="password"  />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" name="confirm-password" required />
+                        <input type="password" id="confirm-password" name="confirm-password"  />
                     </div>
 
                     <button type="submit" className="register-btn">Register</button>

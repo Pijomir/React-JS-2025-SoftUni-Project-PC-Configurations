@@ -20,6 +20,12 @@ const requester = async (method, url, data, options = {}) => {
         return;
     }
 
+    if (!response.ok) {
+        const result = await response.json();
+        
+        throw result;
+    }
+
     const result = await response.json();
 
     return result;

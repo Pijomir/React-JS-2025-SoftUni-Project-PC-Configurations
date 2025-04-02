@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router";
 import useUserAuth from "../../hooks/useUserAuth";
 import { useDeleteConfiguration, useOneConfiguration } from "../../api/PCConfigurationsApi";
+import { toast } from "react-toastify";
 
 export default function PCConfigurationInfo() {
     const navigate = useNavigate();
@@ -13,16 +14,21 @@ export default function PCConfigurationInfo() {
         const hasConfirm = confirm(`Are you sure you want to delete ${configuration.name}?`);
 
         if (!hasConfirm) {
+            toast.info("Deletion canceled.");
             return;
         }
 
-        await deleteConfiguration(configurationId);
-
-        navigate('/configurations');
+        try {
+            await deleteConfiguration(configurationId);
+            navigate('/configurations');
+            toast.success('Successfully Deleted');
+        } catch (err) {
+            toast.error(err.message);
+        }
     }
 
     const configurationEditHandler = () => navigate(`/configurations/${configurationId}/edit`);
-    
+
 
     const isOwner = userId === configuration._ownerId;
 
